@@ -132,36 +132,36 @@ public class ManagementSystemBatch {
             kh.addProducer(Integer.toString(i), kProducerListener);
             kh.sendMessage(Integer.toString(i),"data-queue",jData.toString());
         }
-        try {
-            semaphore.acquire();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        kh.addConsumer("academic_institution_success", "success-queue", Collections.singletonList("success-queue"), true, new KConsumerListener() {
-            @Override
-            public void onMessageIsReady(String id, String topic, String key, int partition, long offset, String message) {
-                System.out.println("RECEIVED SUCCESSSSSS : Id["+id+"], Topic["+topic+"], Key["+key+"], Partition["+partition+"], offset["+offset+"], message["+message+"]");
-                JsonObject jMessage = new JsonParser().parse(message).getAsJsonObject();
-                String idMessage = jMessage.get("id").getAsString();
-                String type = jMessage.get("type").getAsString();
-                System.out.println("ID: "+id+"\tType:"+type);
-                if (type.equals("academic_institution")) {
-                    pending.remove(idMessage);
-                    System.out.println("Pending Size: " + pending.size());
-                    if (pending.size() == 0) {
-                        semaphore.release();
-                    }
-                }
-            }
-        });
-
-        try {
-            semaphore.acquire();
-            kh.removeConsumer("academic_institution_success");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            semaphore.acquire();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        kh.addConsumer("academic_institution_success", "success-queue", Collections.singletonList("success-queue"), true, new KConsumerListener() {
+//            @Override
+//            public void onMessageIsReady(String id, String topic, String key, int partition, long offset, String message) {
+//                System.out.println("RECEIVED SUCCESSSSSS : Id["+id+"], Topic["+topic+"], Key["+key+"], Partition["+partition+"], offset["+offset+"], message["+message+"]");
+//                JsonObject jMessage = new JsonParser().parse(message).getAsJsonObject();
+//                String idMessage = jMessage.get("id").getAsString();
+//                String type = jMessage.get("type").getAsString();
+//                System.out.println("ID: "+id+"\tType:"+type);
+//                if (type.equals("academic_institution")) {
+//                    pending.remove(idMessage);
+//                    System.out.println("Pending Size: " + pending.size());
+//                    if (pending.size() == 0) {
+//                        semaphore.release();
+//                    }
+//                }
+//            }
+//        });
+//
+//        try {
+//            semaphore.acquire();
+//            kh.removeConsumer("academic_institution_success");
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
     }
 
@@ -199,36 +199,36 @@ public class ManagementSystemBatch {
             kh.addProducer(Integer.toString(i), kProducerListener);
             kh.sendMessage(Integer.toString(i),"data-queue",jData.toString());
         }
-        try {
-            semaphore.acquire();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            semaphore.acquire();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
-        kh.addConsumer("title_degree_success", "success-queue", Collections.singletonList("success-queue"), true, new KConsumerListener() {
-            @Override
-            public void onMessageIsReady(String id, String topic, String key, int partition, long offset, String message) {
-                System.out.println("RECEIVED SUCCESSSSSS : Id["+id+"], Topic["+topic+"], Key["+key+"], Partition["+partition+"], offset["+offset+"], message["+message+"]");
-                JsonObject jMessage = new JsonParser().parse(message).getAsJsonObject();
-                String idMessage = jMessage.get("id").getAsString();
-                String type = jMessage.get("type").getAsString();
-                System.out.println("ID: "+id+"\tType:"+type);
-                if (type.equals("title_degree")) {
-                    pending.remove(idMessage);
-                    System.out.println("Pending Size: " + pending.size());
-                    if (pending.size() == 0) {
-                        semaphore.release();
-                    }
-                }
-            }
-        });
-
-        try {
-            semaphore.acquire();
-            kh.removeConsumer("title_degree_success");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        kh.addConsumer("title_degree_success", "success-queue", Collections.singletonList("success-queue"), true, new KConsumerListener() {
+//            @Override
+//            public void onMessageIsReady(String id, String topic, String key, int partition, long offset, String message) {
+//                System.out.println("RECEIVED SUCCESSSSSS : Id["+id+"], Topic["+topic+"], Key["+key+"], Partition["+partition+"], offset["+offset+"], message["+message+"]");
+//                JsonObject jMessage = new JsonParser().parse(message).getAsJsonObject();
+//                String idMessage = jMessage.get("id").getAsString();
+//                String type = jMessage.get("type").getAsString();
+//                System.out.println("ID: "+id+"\tType:"+type);
+//                if (type.equals("title_degree")) {
+//                    pending.remove(idMessage);
+//                    System.out.println("Pending Size: " + pending.size());
+//                    if (pending.size() == 0) {
+//                        semaphore.release();
+//                    }
+//                }
+//            }
+//        });
+//
+//        try {
+//            semaphore.acquire();
+//            kh.removeConsumer("title_degree_success");
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
     }
 
@@ -266,36 +266,36 @@ public class ManagementSystemBatch {
             kh.addProducer(Integer.toString(i), kProducerListener);
             kh.sendMessage(Integer.toString(i),"data-queue",jData.toString());
         }
-        try {
-            semaphore.acquire();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            semaphore.acquire();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        kh.addConsumer("researcher_success", "success-queue", Collections.singletonList("success-queue"), true, new KConsumerListener() {
+//            @Override
+//            public void onMessageIsReady(String id, String topic, String key, int partition, long offset, String message) {
+//                System.out.println("RECEIVED SUCCESSSSSS : Id["+id+"], Topic["+topic+"], Key["+key+"], Partition["+partition+"], offset["+offset+"], message["+message+"]");
+//                JsonObject jMessage = new JsonParser().parse(message).getAsJsonObject();
+//                String idMessage = jMessage.get("id").getAsString();
+//                String type = jMessage.get("type").getAsString();
+//                System.out.println("ID: "+id+"\tType:"+type);
+//                if (type.equals("researcher")) {
+//                    pending.remove(idMessage);
+//                    System.out.println("Pending Size: " + pending.size());
+//                    if (pending.size() == 0) {
+//                        semaphore.release();
+//                    }
+//                }
+//            }
+//        });
 
-        kh.addConsumer("researcher_success", "success-queue", Collections.singletonList("success-queue"), true, new KConsumerListener() {
-            @Override
-            public void onMessageIsReady(String id, String topic, String key, int partition, long offset, String message) {
-                System.out.println("RECEIVED SUCCESSSSSS : Id["+id+"], Topic["+topic+"], Key["+key+"], Partition["+partition+"], offset["+offset+"], message["+message+"]");
-                JsonObject jMessage = new JsonParser().parse(message).getAsJsonObject();
-                String idMessage = jMessage.get("id").getAsString();
-                String type = jMessage.get("type").getAsString();
-                System.out.println("ID: "+id+"\tType:"+type);
-                if (type.equals("researcher")) {
-                    pending.remove(idMessage);
-                    System.out.println("Pending Size: " + pending.size());
-                    if (pending.size() == 0) {
-                        semaphore.release();
-                    }
-                }
-            }
-        });
-
-        try {
-            semaphore.acquire();
-            kh.removeConsumer("researcher_success");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            semaphore.acquire();
+//            kh.removeConsumer("researcher_success");
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
     }
 
