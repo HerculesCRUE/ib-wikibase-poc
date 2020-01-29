@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class CSVHandler {
 
@@ -39,6 +40,13 @@ public class CSVHandler {
                         String content = fields[i];
                         jData.addProperty(headers.get(i),fields[i]);
                     }
+                    
+                    int min = 1;
+                    int max = 100;
+                    
+                    int randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
+                    
+                    jData.addProperty("Random:P15:string", randomNum);
                     jDataArray.add(jData);
                 }
                 ++couter;
